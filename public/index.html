@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vultr MySQL Demo - Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>📋 Task Manager</h1>
+                    <p class="subtitle">Powered by Vultr Managed MySQL Database</p>
+                </div>
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <span class="header-stat-value" id="total-tasks">0</span>
+                        <span class="header-stat-label">Total</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-value" id="completed-tasks">0</span>
+                        <span class="header-stat-label">Done</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-value" id="pending-tasks">0</span>
+                        <span class="header-stat-label">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="add-task-section">
+            <div class="add-task">
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    placeholder="What needs to be done?" 
+                    autofocus
+                />
+                <button onclick="addTask()" class="btn-add">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Add Task
+                </button>
+            </div>
+        </div>
+
+        <div class="tasks-section">
+            <div class="section-header">
+                <h2>Active Tasks</h2>
+                <div class="header-buttons">
+                    <button onclick="clearCompleted()" class="btn-clear" id="clear-btn" style="display: none;">
+                        Clear Completed
+                    </button>
+                    <button onclick="deleteAllTasks()" class="btn-delete-all" id="delete-all-btn" style="display: none;">
+                        Delete All
+                    </button>
+                </div>
+            </div>
+            <div id="tasks-container" class="tasks-grid"></div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-overlay" onclick="closeEditModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button class="modal-close" onclick="closeEditModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="edit-input" placeholder="Task description...">
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeEditModal()" class="btn-cancel">Cancel</button>
+                <button onclick="saveEdit()" class="btn-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
