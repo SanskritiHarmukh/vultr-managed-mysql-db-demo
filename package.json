@@ -1,14 +1,15 @@
 {
   "name": "vultr-managed-mysql-demo",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Task manager demo using Vultr Managed MySQL",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "setup": "node setup.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": ["vultr", "mysql", "demo", "managed-database"],
+  "author": "Sanskriti Harmukh",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
